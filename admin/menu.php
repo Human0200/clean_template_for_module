@@ -1,16 +1,33 @@
 <?php
-$MESS['_CONNECTION_TITLE'] = 'Поддержка';
-$MESS['_BX24_MENU_TITLE'] = '';
 
+use Bitrix\Main\Localization\Loc;
 
+AddEventHandler('main', 'OnBuildGlobalMenu', 'SupportMenu');
 
-$MESS['TECH_SUPPORT_TITLE'] = 'Техническая поддержка';
-$MESS['TECH_SUPPORT_HEADER'] = 'Связь с технической поддержкой';
-$MESS['TECH_SUPPORT_DESCRIPTION'] = 'Если у вас возникли вопросы или проблемы с работой модуля, пожалуйста, свяжитесь с нашей технической поддержкой любым удобным способом.';
-$MESS['CONTACT_INFO'] = 'Контактная информация';
-$MESS['SUPPORT_EMAIL'] = 'Электронная почта';
-$MESS['SUPPORT_PHONE'] = 'Телефон';
-$MESS['SUPPORT_SITE'] = 'Сайт поддержки';
-$MESS['WORKING_HOURS'] = 'Часы работы';
-$MESS['WORKING_HOURS_TEXT'] = 'Понедельник - Пятница: с 9:00 до 18:00 (МСК)';
-$MESS['ACCESS_DENIED'] = 'Доступ запрещен';
+function SupportMenu(&$arGlobalMenu, &$arModuleMenu)
+{
+    $moduleId = 'leadspace.parsercsv';
+
+    if ($GLOBALS['APPLICATION']->GetGroupRight($moduleId) < 'R') {
+        return;
+    }
+
+    // Создаем корневой раздел "Интеграция" без подпунктов
+    $arGlobalMenu['support_connection'] = [
+        'menu_id' => 'global_menu_support',
+        'text' => Loc::getMessage('PARSER_CONNECTION_TITLE'),
+        'title' => Loc::getMessage('PARSER_CONNECTION_DESC'),
+        'sort' => 1000, // Позиция в меню
+        'items_id' => 'global_menu_support_items',
+        'icon' => 'update_menu_icon',
+    ];
+
+        $arGlobalMenu['support_connection']['items'][$moduleId] = [
+        'menu_id' => 'menu_support_bx24',
+        'text' => Loc::getMessage('PARSER_MENU_TITLE'),
+        'items_id' => 'menu_support_items',
+        'url' => '/bitrix/admin/module_connector_admin.php?lang='.LANGUAGE_ID,
+        'icon' => 'catalog_menu_icon',
+    ];
+
+}
