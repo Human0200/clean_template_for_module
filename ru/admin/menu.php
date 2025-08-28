@@ -1,6 +1,7 @@
 <?php
 $MESS['_CONNECTION_TITLE'] = 'Поддержка';
 $MESS['_BX24_MENU_TITLE'] = '';
+$MESS['_CONNECTION_DESC'] = '';
 
 
 
