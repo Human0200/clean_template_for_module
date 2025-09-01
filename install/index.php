@@ -25,10 +25,10 @@ class class_of_module extends CModule
         include(__DIR__ . '/version.php');
         $this->MODULE_VERSION = $arModuleVersion["VERSION"];
         $this->MODULE_VERSION_DATE = $arModuleVersion["VERSION_DATE"];
-        $this->MODULE_NAME = GetMessage("PARSER_MODULE_NAME");
-        $this->MODULE_DESCRIPTION = GetMessage("PARSER_MODULE_DESC");
-        $this->PARTNER_NAME = GetMessage("PARSER_PARTNER_NAME");
-        $this->PARTNER_URI = GetMessage("PARSER_PARTNER_URI");
+        $this->MODULE_NAME = GetMessage("_MODULE_NAME");
+        $this->MODULE_DESCRIPTION = GetMessage("_MODULE_DESC");
+        $this->PARTNER_NAME = GetMessage("_PARTNER_NAME");
+        $this->PARTNER_URI = GetMessage("_PARTNER_URI");
     }
 
     public function InstallDB()
