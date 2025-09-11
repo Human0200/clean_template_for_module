@@ -5,7 +5,7 @@ class GlobalSettings
 {
     public static function getId()
     {
-        return 'integrationbx24';
+        return '';
     }
     
     public static function getPath()

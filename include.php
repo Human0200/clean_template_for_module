@@ -2,7 +2,7 @@
 
 use Bitrix\Main\Loader;
 
-Loader::registerAutoLoadClasses('leadspace.parsercsv', [
+Loader::registerAutoLoadClasses('', [
     'Settings24\GlobalSettings' => 'lib/classes/settings.php',
 
 ]);

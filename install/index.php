@@ -55,7 +55,7 @@ class class_of_module extends CModule
             ModuleManager::registerModule($this->MODULE_ID);
 
             $APPLICATION->IncludeAdminFile(
-                Loc::getMessage("PARSER_INSTALL_TITLE"),
+                Loc::getMessage("_INSTALL_TITLE"),
                 __DIR__ . '/step1.php'
             );
         }
@@ -71,7 +71,7 @@ class class_of_module extends CModule
         ModuleManager::unRegisterModule($this->MODULE_ID);
 
         $APPLICATION->IncludeAdminFile(
-            Loc::getMessage("PARSER_UNINSTALL_TITLE"),
+            Loc::getMessage("_UNINSTALL_TITLE"),
             __DIR__ . '/unstep1.php'
         );
     }
